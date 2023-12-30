@@ -7,5 +7,9 @@ public class Engine {
 	SparkPlug plug;
 	FuelInlet inlet;
 	int cc;
+	
+	public void crush() {
+		piston.crush();
+	}
 
 }
