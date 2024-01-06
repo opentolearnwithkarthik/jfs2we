@@ -1,5 +1,6 @@
 package shape_creator;
 
+import oops2.InterfaceArea;
 import oops2.Quadrilateral;
 import oops2.Rectangle;
 import oops2.Square;
@@ -11,7 +12,7 @@ public class ShapeCreator {
 	public static void main(String[] args) {
 		Square sq1 = new Square(5);
 //		Square sq2 = new Triangle(5, 10); not possible
-		Rectangle r1 = new Rectangle(10, 8);
+//		Rectangle r1 = new Rectangle(10, 8);
 //		TwoDimensionalShape twod = new TwoDimensionalShape();
 		sq1.area();
 
@@ -27,13 +28,40 @@ public class ShapeCreator {
 		shape2.area();
 		shape3.area();
 
+		Rectangle r1 = new Rectangle(50, 20);
+		TwoDimensionalShape r2 = new Rectangle(20, 30);
+		TwoDimensionalShape r3 = new TwoDimensionalShape() {
+			
+			int sides = 0;
+			
+			@Override
+			public double perimeter() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public double area() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+		};
+		
+		InterfaceArea a1 = new InterfaceArea() {
+			
+			@Override
+			public double area() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+		};
 	}
 
 	public static void printArea(TwoDimensionalShape twoDShape) {
 		twoDShape.area();
 //		twoDShape.getLength(); // compilation error
 	}
-	
+
 //	public static void printArea(Triangle tri) {
 //		tri.area();
 //	}

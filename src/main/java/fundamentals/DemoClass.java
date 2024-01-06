@@ -1,11 +1,29 @@
 package fundamentals;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DemoClass {
 
 	public static void main(String[] args) {
+
+		String name1 = "Karthik";
+		String name2 = new String("Karthik");
+		String name3 = "Karthik";
+		System.out.println(name1 == name2);
+		System.out.println(name1 == name3);
+		name3 = "Sree";
+		System.out.println(name1 == name3);
+		name3 = "Sree Karthik";
+		System.out.println(name3.replaceAll("thik", "thick"));
+		System.out.println(name3);
+		
+		System.out.println(name1.equals(name2));
+		
+		
+		if(123%2 == 1) {
+			return;
+		}
+		
+		
+
 		int a = 5;
 		long b = 10;
 		double d = 100.123;
@@ -181,7 +199,7 @@ public class DemoClass {
 
 		for (int i = 1; i <= 10; i++) {
 			for (int j = 1; j <= 10; j++) {
-				System.out.println("Outer loop iteration - "+ i + " & inner loop iteration - " + j);
+				System.out.println("Outer loop iteration - " + i + " & inner loop iteration - " + j);
 			}
 		}
 
