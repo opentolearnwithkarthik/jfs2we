@@ -30,6 +30,10 @@ public class ShapeCreator {
 
 		Rectangle r1 = new Rectangle(50, 20);
 		TwoDimensionalShape r2 = new Rectangle(20, 30);
+		TwoDimensionalShape t1 = new Triangle();
+		Rectangle rr = (Rectangle) t1;
+		
+		
 		TwoDimensionalShape r3 = new TwoDimensionalShape() {
 			
 			int sides = 0;

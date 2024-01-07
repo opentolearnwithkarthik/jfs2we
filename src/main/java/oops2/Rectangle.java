@@ -31,5 +31,10 @@ public class Rectangle extends Quadrilateral {
 	public double perimeter() {
 		return 2 * (length + breadth);
 	}
+	
+//	private Triangle toTriangle() {
+//		// TODO Auto-generated method stub
+//
+//	}
 
 }
