@@ -1,5 +1,7 @@
 package oops;
 
+import java.util.Objects;
+
 public class Car extends Vehicle implements InterfaceToDrive { // Car 'is a' Vehicle
 
 	public Car(String brandName, String model) {
@@ -27,7 +29,7 @@ public class Car extends Vehicle implements InterfaceToDrive { // Car 'is a' Veh
 	}
 
 	public String brand;
-	String modelNo;
+	public String modelNo;
 	private Steering steering; // Car 'has a' Steering -> encapsulation
 	private Engine engine;
 
@@ -88,6 +90,29 @@ public class Car extends Vehicle implements InterfaceToDrive { // Car 'is a' Veh
 	@Override
 	public void drive() { // object of Car 'can do' drive()
 		System.out.println("Vroom");
+	}
+
+	@Override
+	public int hashCode() {
+//		return Objects.hash(brand, modelNo);
+		return brand.length() + modelNo.length();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Car other = (Car) obj;
+		return Objects.equals(brand, other.brand) && Objects.equals(modelNo, other.modelNo);
+	}
+
+	@Override
+	public String toString() {
+		return "Car [brand=" + brand + ", modelNo=" + modelNo + ", hashCode=" + hashCode() + "]";
 	}
 
 }
