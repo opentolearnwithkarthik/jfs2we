@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Stack;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
 
@@ -160,29 +162,26 @@ public class CollectionsExplanation {
 		System.out.println(set.add("Francina"));
 		System.out.println(set.add("Hemachandran"));
 		System.out.println(set.add("Balaji"));
-		System.out.println(set);
-		System.out.println("Naresh".hashCode());
-		System.out.println("Sharmila".hashCode());
-		System.out.println("Hemachandran".hashCode());
-		System.out.println("Balaji".hashCode());
-		System.out.println("Francina".hashCode());
-		System.out.println("Naresh".hashCode() % 16);
-		System.out.println("Sharmila".hashCode() % 16);
-		System.out.println("Hemachandran".hashCode() % 16);
-		System.out.println("Balaji".hashCode() % 16);
-		System.out.println("Francina".hashCode() % 16);
+		System.out.println("HashSet - " + set);
+//		System.out.println("Naresh".hashCode());
+//		System.out.println("Sharmila".hashCode());
+//		System.out.println("Hemachandran".hashCode());
+//		System.out.println("Balaji".hashCode());
+//		System.out.println("Francina".hashCode());
+//		System.out.println("Naresh".hashCode() % 16);
+//		System.out.println("Sharmila".hashCode() % 16);
+//		System.out.println("Hemachandran".hashCode() % 16);
+//		System.out.println("Balaji".hashCode() % 16);
+//		System.out.println("Francina".hashCode() % 16);
 
 		// n -> size of the collection
 		// O(1) to O(log n) -> HashSet contains
 		// O(n) -> ArrayList get, LinkedList contains
-		
-		
+
 		HashSet<Car> carSet = new HashSet<>();
 		carSet.add(car1);
 		carSet.add(car2);
 		System.out.println(carSet);
-		
-		
 		HashSet<String> linkedHashSet = new LinkedHashSet<>();
 		System.out.println("linkedHashSet addition");
 		System.out.println(linkedHashSet.add("Naresh"));
@@ -193,42 +192,49 @@ public class CollectionsExplanation {
 		System.out.println(linkedHashSet.add("Francina"));
 		System.out.println(linkedHashSet.add("Hemachandran"));
 		System.out.println(linkedHashSet.add("Balaji"));
-		System.out.println(linkedHashSet);
-		
-		
-		linkedHashSet.remove(null);
+		System.out.println("LinkedHashSet - " + linkedHashSet);
+		set.add(null);
+		System.out.println("HashSet - " + set);
+		System.out.println("Removing null - " + linkedHashSet.remove(null));
 		TreeSet<String> treeSet = new TreeSet<>(linkedHashSet);
-		System.out.println(treeSet);
-		
+		System.out.println("TreeSet default ordering - " + treeSet);
+
 		Comparator<String> comparator = new Comparator<String>() {
-			
+
 			@Override
 			public int compare(String o1, String o2) {
 				return o2.compareTo(o1);
 			}
 		};
-		
+
 		TreeSet<String> treeSetComparator = new TreeSet<>(comparator);
 		treeSetComparator.addAll(linkedHashSet);
-		System.out.println(treeSetComparator);
-		
-		
+		System.out.println("TreeSet custom ordering - " + treeSetComparator);
+
 //		Map<String,Integer> studentAgeMap = new TreeMap<>();
 //		Map<String,Integer> studentAgeMap = new HashMap<>();
-		Map<String,Integer> studentAgeMap = new LinkedHashMap<>();
+		Map<String, Integer> studentAgeMap = new LinkedHashMap<>();
 		studentAgeMap.put("Naresh", 28);
 		studentAgeMap.put("Sharmila", 25);
 		studentAgeMap.put("Hemachandran", 25);
 		studentAgeMap.put("Balaji", 27);
 		studentAgeMap.put("Francina", 24);
 		studentAgeMap.put("Hemachandran", 30);
-		System.out.println(studentAgeMap);
-		System.out.println(studentAgeMap.keySet());
-		System.out.println(studentAgeMap.values());
-		for(Entry<String,Integer> entry : studentAgeMap.entrySet()) {
-			System.out.println(entry.getKey() +" --- "+entry.getValue());
+		System.out.println("LinkedHashMap - " + studentAgeMap);
+		HashMap<String, Integer> hashMap = new HashMap<String, Integer>(studentAgeMap);
+		TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>(studentAgeMap);
+		System.out.println("HashMap - " + hashMap);
+		System.out.println("TreeMap - " + treeMap);
+		System.out.println("Keyset of LinkedHashMap- " + studentAgeMap.keySet());
+		System.out.println("Keyset of HashMap- " + hashMap.keySet());
+		System.out.println("Keyset of TreeMap- " + treeMap.keySet());
+		System.out.println("Values of LinkedHashMap - " + studentAgeMap.values());
+		System.out.println("Keyset of HashMap- " + hashMap.values());
+		System.out.println("Keyset of TreeMap- " + treeMap.values());
+		System.out.println("Entry set of LinkedHashMap Key --- Value");
+		for (Entry<String, Integer> entry : studentAgeMap.entrySet()) {
+			System.out.println(entry.getKey() + " --- " + entry.getValue());
 		}
-		
 
 	}
 
